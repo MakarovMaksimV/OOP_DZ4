@@ -1,9 +1,12 @@
 package impl;
 
+import java.util.Iterator;
+
 public interface MyLinkead<E> {
-    void  addFirst(E element);
-    void  addLast(E element);
-    Node <E> getElementByIndex(int count);
+
+    void  add(E element);
+    E getElementByIndex(int index);
     int size();
+
 
 }

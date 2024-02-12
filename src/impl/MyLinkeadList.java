@@ -3,47 +3,43 @@ package impl;
 import java.util.Iterator;
 
 public class MyLinkeadList<E> implements MyLinkead<E> {
-    private Node <E> headFirst;
-    private Node <E> headLast;
-    private  int size;
+    private Node<E> first;
+    private int size = 0;
 
-    private Node<E> getNextElement(Node<E> element){
-        return element.getNextElement();
+
+    public E[] toArray() {
+        int size = size();
+        E[] result = null;
+        result = (E[]) new Object[size];
+
+        for (int i = 0; i < size; i++) {
+            result[i] = getElementByIndex(i);
+        }
+        return result;
     }
 
-    public MyLinkeadList() {
-        headFirst = new Node<>(null,null,headLast);
-        headLast = new Node<>(null,headFirst,null);
-    }
 
     @Override
-    public void addFirst(E element) {
-        Node<E> next = headFirst;
-        next.setElement(element);
-        headFirst = new Node<>(null,null,next);
-        next.setPrev(headFirst);
+    public void add(E element) {
+        Node<E> newNode = new Node<>(element, null, first);
+
+        if (first != null) {
+            first.prev = newNode;
+        }
+        first = newNode;
         size++;
     }
 
     @Override
-    public void addLast(E element) {
-        Node <E> prev = headLast;
-        prev.setElement(element);
-        headLast = new Node<>(null,prev,null);
-        prev.setNext(headLast);
-        size++;
-    }
-
-    @Override
-    public Node <E> getElementByIndex(int index) {
-        if(index > size & size == 0){
+    public E getElementByIndex(int index) {
+        if (index < 0 || index >= size || size == 0) {
             throw new IndexOutOfBoundsException("Индекс больше чем длина списка!");
         }
-        Node<E> result = headFirst.getNextElement();
-        for (int i = 0; i< index; i++){
-            result = getNextElement(result);
+        Node<E> result = first;
+        for (int i = 0; i < index; i++) {
+            result = result.next;
         }
-        return (Node<E>) result.getElement();
+        return result.iteam;
     }
 
     @Override

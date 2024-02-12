@@ -3,36 +3,42 @@ package core;
 import impl.MyLinkead;
 import impl.MyLinkeadList;
 
-public class Main {
-    public static void main(String[] args) {
+import java.util.Objects;
+import java.util.Scanner;
 
-        MyLinkead<Integer> myLinkeadList = new MyLinkeadList<>();
-        myLinkeadList.addFirst(1);
-        myLinkeadList.addLast(2);
-        myLinkeadList.addLast(3);
+public class Main {
+    public static void main(String[] args)  {
+
+        MyLinkead<Object> myLinkeadList = new MyLinkeadList<>();
+        myLinkeadList.add(1);
+        myLinkeadList.add(2);
+        myLinkeadList.add(3);
+        System.out.println(myLinkeadList.getElementByIndex(0));
         System.out.println(myLinkeadList.size());
-//        myLinkeadList.getElementByIndex(1);
+
 
 
 //        Scanner scaner = new Scanner(System.in);
 //
-//        while (true) {
 //            System.out.println("Выберите команду : 1 - Добавить в элемент в начало списка, " +
-//                    "2 - Добавить элемент в конец списка " +
-//                    "3 - Получить элемент по индексу"
+//                    "2 - Получить элемент по индексу " + "3 - Распечатать список "
 //            );
 //            String s = scaner.nextLine();
 //            switch (s) {
 //                case "1":
-//                    System.out.println("Вы выбрали добвление элемента в начало списка");
+//                    System.out.println("Вы выбрали добвление элемента в начало списка, введите элемент: ");
+//                    String a = scaner.nextLine();
+//                    myLinkeadList.add(a);
 //                    break;
 //                case "2":
-//                    System.out.println("Вы выбрали добвление элемента в конец списка");
+//                    System.out.println("Вы выбрали получение элемента по индексу");
+//                    Integer b = scaner.nextInt();
+//                    myLinkeadList.getElementByIndex(b);
 //                    break;
 //                case "3":
-//                    System.out.println("Вы выбрали получение элемента по индексу");
+//                    System.out.println("Вывод списка на экран");
 //                    break;
 //            }
-//        }
+//        main(args);
     }
 }
